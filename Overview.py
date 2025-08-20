@@ -22,7 +22,7 @@ st.markdown(
 
 st.write(''' Seperti namanya, kopi Specialty adalah sebuah penilaian atau pengklasifikasian terhadap kopi yang memiliki aroma dan rasa yang istimewa. Jika kita menilai berdasarkan penilaian SCAA (Specialty Coffee Association of America) maka sebuah kopi specialty wajib memiliki nilai minimum 80 dan maksimum 100 serta tidak memiliki cacat primer untuk green bean/biji hijau-nya.''')
 
-col1,col2,col3,col4 = st.columns(4)
+col1,col2 = st.columns(2)
 with col1:
     st.markdown(''' **Awal Mula Penilaian: Dari Tampilan Fisik ke Rasa** :
 Pada awalnya, penilaian kopi didasarkan pada tampilan fisik biji. Kopi dinilai berdasarkan ukuran, bentuk, dan warna biji,
@@ -57,5 +57,6 @@ Dimana setelah setelah mengetahui karakteristik karakteristik diatas lalu data t
 Dalam Project ini algoritma yang digunakan adalah menggunakan algoritma K-Means,dimana Algoritma K-Means sendiri sering digunakan dalam project-project berbasis unsupervised learning,dimana algoritma ini memiliki keuntungan yang diantaranya adalah :
 - Cepat dan efisien, terutama pada dataset yang besar.
 - Mudah dipahami dan diimplementasikan.''')
+
 
 
