@@ -110,8 +110,41 @@ Gerakan ini mendorong para konsumen untuk melihat kopi seperti halnya anggur—s
 - Cara Pemrosesan
 
     """,
-    "Era Digital dan Keterlacakan (2010 - Sekarang)": """
-    Saat ini, penilaian kopi sangat terperinci dan transparan. Selain standar SCA, muncul platform digital yang mengumpulkan data penilaian dari berbagai cupper. Setiap sampel kopi kini bisa dilacak hingga ke petani, perkebunan, dan metode pengolahan. Pengaruh faktor seperti ketinggian (altitude) dan varietas biji juga semakin diperhitungkan, membuat penilaian menjadi lebih akurat.
+    "Pembentukan SCA dan Standarisasi Penilaian": """
+Pada tahun 1982, didirikanlah Specialty Coffee Association of America (SCAA). Organisasi ini menjadi tonggak penting dalam standarisasi penilaian kopi spesialti.
+SCAA, yang kemudian merger dengan Specialty Coffee Association of Europe (SCAE) pada tahun 2017 menjadi Specialty Coffee Association (SCA),
+mengembangkan sistem penilaian yang dikenal sebagai SCA Cupping Protocol atau Q-Grading System.
+
+Sistem ini, yang masih menjadi acuan global hingga kini, memiliki karakteristik utama sebagai berikut:
+1. Sistem 100 Poin: Kopi dinilai pada skala 100 poin, di mana kopi dengan skor 80 atau lebih dianggap sebagai kopi spesialti.
+2. Penilaian Sensorik: Penilaian tidak lagi hanya berdasarkan cacat fisik, tetapi berfokus pada atribut rasa dan aroma, seperti:
+- Fragrance/Aroma (Aroma kering dan basah)
+- Flavor (Rasa)
+- Aftertaste (Sisa Rasa setelah ditelan)
+- Acidity (Keasaman)
+- Body (Kekentalan)
+- Balance (Keseimbangan)
+- Clean Cup (Kebersihan Rasa)
+- Uniformity (Keseragaman Rasa)
+- Sweetness (Rasa Manis)
+- Overall (kesan keseluruhan)
+
+3. Pelatihan Profesional: SCA memperkenalkan program sertifikasi untuk para penilai kopi, yang dikenal sebagai Q Grader.
+Mereka dilatih untuk mencicipi dan menilai kopi secara objektif dan konsisten menggunakan standar yang sama di seluruh dunia.
+    """,
+    
+    "Era Modern: Cupping dan Inovasi": """
+Saat ini, cupping (proses penilaian kopi) telah menjadi metode standar yang digunakan oleh :
+- Petani
+- Eksportir
+- Roaster
+- Barista 
+Untuk menguji dan menentukan kualitas kopi. Perkembangan teknologi dan riset terus dilakukan, dan SCA bahkan sedang menguji sistem penilaian baru yang dikenal sebagai 
+Coffee Value Assessment (CVA).
+
+CVA dirancang untuk memberikan penilaian yang lebih holistik, tidak hanya berfokus pada poin numerik tetapi juga pada nilai-nilai lain seperti dampak lingkungan dan sosial. 
+Ini menunjukkan bahwa sejarah penilaian kopi spesialti terus bergerak maju, dari sekadar fokus pada rasa menjadi penghargaan penuh
+atas seluruh rantai pasok kopi, dari kebun hingga cangkir.
     """
 }
 
@@ -127,4 +160,5 @@ pilihan_era = st.radio(
 st.markdown("---")
 st.subheader(f"Ringkasan: {pilihan_era}")
 st.write(sejarah_kopi[pilihan_era])
+
 
