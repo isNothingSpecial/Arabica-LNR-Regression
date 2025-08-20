@@ -25,7 +25,7 @@ st.write(''' Seperti namanya, kopi Specialty adalah sebuah penilaian atau pengkl
 col1,col2 = st.columns(2)
 with col1:
     st.markdown(''' **Awal Mula Penilaian: Dari Tampilan Fisik ke Rasa**''')
-st.markdown('''Pada awalnya, penilaian kopi didasarkan pada tampilan fisik biji. Kopi dinilai berdasarkan ukuran, bentuk, dan warna biji,
+st.write('''Pada awalnya, penilaian kopi didasarkan pada tampilan fisik biji. Kopi dinilai berdasarkan ukuran, bentuk, dan warna biji,
 serta jumlah cacat fisik yang terlihat. Sistem ini, yang masih digunakan di beberapa pasar komersial hingga kini (seperti standar SNI yang berbasis cacat),
 seringkali tidak mencerminkan kualitas rasa kopi saat diseduh.
 
@@ -57,6 +57,7 @@ Dimana setelah setelah mengetahui karakteristik karakteristik diatas lalu data t
 Dalam Project ini algoritma yang digunakan adalah menggunakan algoritma K-Means,dimana Algoritma K-Means sendiri sering digunakan dalam project-project berbasis unsupervised learning,dimana algoritma ini memiliki keuntungan yang diantaranya adalah :
 - Cepat dan efisien, terutama pada dataset yang besar.
 - Mudah dipahami dan diimplementasikan.''')
+
 
 
 
