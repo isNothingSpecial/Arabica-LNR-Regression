@@ -24,8 +24,8 @@ st.write(''' Seperti namanya, kopi Specialty adalah sebuah penilaian atau pengkl
 
 col1,col2 = st.columns(2)
 with col1:
-    st.markdown(''' **Awal Mula Penilaian: Dari Tampilan Fisik ke Rasa** :
-Pada awalnya, penilaian kopi didasarkan pada tampilan fisik biji. Kopi dinilai berdasarkan ukuran, bentuk, dan warna biji,
+    st.markdown(''' **Awal Mula Penilaian: Dari Tampilan Fisik ke Rasa**''')
+st.markdown('''Pada awalnya, penilaian kopi didasarkan pada tampilan fisik biji. Kopi dinilai berdasarkan ukuran, bentuk, dan warna biji,
 serta jumlah cacat fisik yang terlihat. Sistem ini, yang masih digunakan di beberapa pasar komersial hingga kini (seperti standar SNI yang berbasis cacat),
 seringkali tidak mencerminkan kualitas rasa kopi saat diseduh.
 
@@ -35,11 +35,11 @@ terkadang menghasilkan rasa yang luar biasa. Oleh karena itu, muncullah kebutuha
 ''')
 
 with col2:
-    st.markdown('''**Era "Spesialti Kopi" dan "Third Wave"** :
+    st.markdown('''**Era "Spesialti Kopi" dan "Third Wave"**
 Istilah "Specialty Coffee" pertama kali diperkenalkan oleh Erna Knutsen dari Knutsen Coffee Ltd. dalam sebuah artikel pada tahun 1974.
 Ia mendefinisikan kopi spesialti sebagai kopi yang memiliki profil rasa khusus dan berasal dari biji yang ditanam di iklim mikro tertentu.
 
-Konsep ini kemudian berkembang pesat, sejalan dengan munculnya gerakan "Third Wave of Coffee" pada akhir abad ke-20.
+st.Konsep ini kemudian berkembang pesat, sejalan dengan munculnya gerakan "Third Wave of Coffee" pada akhir abad ke-20.
 Gerakan ini mendorong para konsumen untuk melihat kopi seperti halnya anggur—sebagai produk pertanian yang memiliki karakteristik unik berdasarkan :
 - Varietas
 - Asal
@@ -57,6 +57,7 @@ Dimana setelah setelah mengetahui karakteristik karakteristik diatas lalu data t
 Dalam Project ini algoritma yang digunakan adalah menggunakan algoritma K-Means,dimana Algoritma K-Means sendiri sering digunakan dalam project-project berbasis unsupervised learning,dimana algoritma ini memiliki keuntungan yang diantaranya adalah :
 - Cepat dan efisien, terutama pada dataset yang besar.
 - Mudah dipahami dan diimplementasikan.''')
+
 
 
 
