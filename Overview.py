@@ -73,13 +73,18 @@ Mereka dilatih untuk mencicipi dan menilai kopi secara objektif dan konsisten me
 ''')
 
 with col4:
-    st.markdown('''**Era "Spesialti Kopi" dan "Third Wave"** \n
-Istilah "Specialty Coffee" pertama kali diperkenalkan oleh Erna Knutsen dari Knutsen Coffee Ltd. dalam sebuah artikel pada tahun 1974.
-Ia mendefinisikan kopi spesialti sebagai kopi yang memiliki profil rasa khusus dan berasal dari biji yang ditanam di iklim mikro tertentu.
+    st.markdown('''**Era Modern: Cupping dan Inovasi** \n
 
-st.Konsep ini kemudian berkembang pesat, sejalan dengan munculnya gerakan "Third Wave of Coffee" pada akhir abad ke-20.
-Gerakan ini mendorong para konsumen untuk melihat kopi seperti halnya anggur—sebagai produk pertanian yang memiliki karakteristik unik berdasarkan :
-- Varietas
-- Asal
-- Cara Pemrosesan
+Saat ini, cupping (proses penilaian kopi) telah menjadi metode standar yang digunakan oleh :
+- Petani
+- Eksportir
+- Roaster
+- Barista 
+Untuk menguji dan menentukan kualitas kopi. Perkembangan teknologi dan riset terus dilakukan, dan SCA bahkan sedang menguji sistem penilaian baru yang dikenal sebagai 
+Coffee Value Assessment (CVA).
+
+CVA dirancang untuk memberikan penilaian yang lebih holistik, tidak hanya berfokus pada poin numerik tetapi juga pada nilai-nilai lain seperti dampak lingkungan dan sosial. 
+Ini menunjukkan bahwa sejarah penilaian kopi spesialti terus bergerak maju, dari sekadar fokus pada rasa menjadi penghargaan penuh
+atas seluruh rantai pasok kopi, dari kebun hingga cangkir.
 ''')
+
