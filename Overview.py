@@ -1,76 +1,51 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn import metrics
+import seaborn as sns
+import matplotlib.pyplot as plt
+import importlib
 
-# variabel X dan y
+## data
 
-df = pd.read_csv('arabica_data_cleaned.csv')
+st.set_page_config(page_title="Homepage",layout="wide")
+#side bar
 
-X = df[["Aroma","Flavor","Aftertaste","Acidity","Body","Balance","Uniformity","Clean.Cup","Sweetness","Cupper.Points"]] # Variabel independen (prediktor)
-y = df["Total.Cup.Points"] # Variabel dependen (target)
+##layout
 
-model = LinearRegression()
-model.fit(X, y)
+# Menggunakan HTML dan CSS untuk membuat header dan subheader rata tengah
+st.markdown(
+    """
+    <h1 style='text-align: center;'>Penilaian Kualitas Biji Kopi Dengan menggunakan Algoritma Linier Regression</h1>
+    """, 
+    unsafe_allow_html=True
+)
 
-# Fungsi untuk mengklasifikasikan hasil
-def classify_quality(score):
-    """Mengklasifikasikan skor kopi ke dalam kategori kualitas."""
-    if 90 <= score <= 100:
-        return "Kopi Spesialti Luar Biasa (Outstanding Specialty Coffee)"
-    elif 85 <= score < 90:
-        return "Kopi Spesialti Sangat Baik (Excellent Specialty Coffee)"
-    elif 80 <= score < 85:
-        return "Kopi Spesialti (Specialty Coffee)"
-    else:
-        return "Kopi Non-Spesialti"
+st.write(''' Seperti namanya, kopi Specialty adalah sebuah penilaian atau pengklasifikasian terhadap kopi yang memiliki aroma dan rasa yang istimewa. Jika kita menilai berdasarkan penilaian SCAA (Specialty Coffee Association of America) maka sebuah kopi specialty wajib memiliki nilai minimum 80 dan maksimum 100 serta tidak memiliki cacat primer untuk green bean/biji hijau-nya.''')
 
-# --- Tampilan Streamlit ---
-
-st.title("Aplikasi Prediksi Kualitas Kopi ☕")
-st.write("Masukkan skor atribut sensorik untuk memprediksi Total Cup Points dan klasifikasi kualitas kopi.")
-
-# Input dari pengguna
-st.subheader("Skor Atribut Sensorik (Skala 0-10)")
-
-# Gunakan kolom untuk inputan yang lebih rapi
-col1, col2 = st.columns(2)
-
+col1,col2 = st.columns(2)
 with col1:
-    aroma = st.number_input("Aroma", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
-    flavor = st.number_input("Flavor", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
-    aftertaste = st.number_input("Aftertaste", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
-    acidity = st.number_input("Acidity", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
-    body = st.number_input("Body", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+    st.markdown(''' **Sejarah Singkat Sribu** :
+- **2011** : Sribu diluncurkan sebagai platform kontes desain yang berfokus pada pasar Indonesia, menawarkan berbagai kategori seperti desain logo, desain kemasan, dan desain interior.
+- **2012** : Menerima pendanaan awal dari East Ventures, yang memungkinkan ekspansi layanan.
+- **2014** : Mendapat investasi tambahan dari Asteria Japan dan memperluas kategori layanan untuk mencakup lebih dari sekadar desain grafis.
+- **2018** : Menerima pendanaan dari Crowdworks, pasar freelance terbesar di Jepang.
+- **2022** : Diakuisisi oleh Mynavi Japan dan menjadi anak perusahaan mereka.
+''')
 
 with col2:
-    balance = st.number_input("Balance", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
-    uniformity = st.number_input("Uniformity", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
-    clean_cup = st.number_input("Clean Cup", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
-    sweetness = st.number_input("Sweetness", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
-    cupper_points = st.number_input("Cupper Points", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+    st.markdown('''**Pencapaian Sribu** :
+- Hingga tahun 2022, Sribu telah melayani lebih dari 30.000 klien dengan komunitas freelancer yang dikurasi secara ketat untuk memastikan kualitas dalam komunikasi, ketepatan waktu, dan hasil kerja.
+- Sribu juga telah menerima beberapa penghargaan, termasuk Indonesia ICT Awards 2013 dan SparxUp Award 2011
+''')
 
-# Tombol untuk prediksi
-if st.button("Prediksi Kualitas Kopi"):
-    # Buat DataFrame dari input pengguna
-    input_data = pd.DataFrame([[aroma, flavor, aftertaste, acidity, body, balance, uniformity, clean_cup, sweetness, cupper_points]],
-                              columns=['Aroma', 'Flavor', 'Aftertaste', 'Acidity', 'Body', 'Balance', 'Uniformity', 'Clean.Cup', 'Sweetness', 'Cupper.Points'])
+st.markdown(''' Tujuan melakukan Clustering ini adalah untuk mengidentifikasi karakteristik pelanggan dimana dalam kasus ini adalah menggunakan Karakteristik-karakteristik,seperti :
+- Recency
+- Frequency
+- Monetary
+- Category
 
-    # Lakukan prediksi
-    predicted_score = model.predict(input_data)[0]
+Dimana setelah setelah mengetahui karakteristik karakteristik diatas lalu data tersebut diolah untuk melakukan pemetaan cluster dari data yang diperoleh tersebut,lalu setelah dimasukkan mesin akan mengolah data tersebut guna memahami dengan karakteristik sebagai berikut termasuk kedalam cluster yang mana.
 
-    # Klasifikasi hasil
-    classification = classify_quality(predicted_score)
-    
-    st.markdown("---")
-    st.subheader("Hasil Prediksi")
-    st.write(f"**Total Cup Points yang diprediksi:** **:green[{predicted_score:.2f}]**")
-    st.write(f"**Klasifikasi Kualitas:** **:blue[{classification}]**")
-
-# Petunjuk penggunaan
-st.markdown("---")
-st.info("💡 **Petunjuk:** Ubah nilai di atas sesuai dengan data kopi Anda, lalu klik 'Prediksi Kualitas Kopi' untuk melihat hasilnya.")
-
-
+Dalam Project ini algoritma yang digunakan adalah menggunakan algoritma K-Means,dimana Algoritma K-Means sendiri sering digunakan dalam project-project berbasis unsupervised learning,dimana algoritma ini memiliki keuntungan yang diantaranya adalah :
+- Cepat dan efisien, terutama pada dataset yang besar.
+- Mudah dipahami dan diimplementasikan.''')
