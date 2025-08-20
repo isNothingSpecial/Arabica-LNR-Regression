@@ -32,9 +32,6 @@ def classify_quality(score):
 st.title("Aplikasi Prediksi Kualitas Kopi ☕")
 st.write("Masukkan skor atribut sensorik untuk memprediksi Total Cup Points dan klasifikasi kualitas kopi.")
 
-# Latih model satu kali
-model = train_model()
-
 # Input dari pengguna
 st.subheader("Skor Atribut Sensorik (Skala 0-10)")
 
@@ -75,3 +72,4 @@ if st.button("Prediksi Kualitas Kopi"):
 # Petunjuk penggunaan
 st.markdown("---")
 st.info("💡 **Petunjuk:** Ubah nilai di atas sesuai dengan data kopi Anda, lalu klik 'Prediksi Kualitas Kopi' untuk melihat hasilnya.")
+
