@@ -35,9 +35,15 @@ terkadang menghasilkan rasa yang luar biasa. Oleh karena itu, muncullah kebutuha
 ''')
 
 with col2:
-    st.markdown('''**Pencapaian Sribu** :
-- Hingga tahun 2022, Sribu telah melayani lebih dari 30.000 klien dengan komunitas freelancer yang dikurasi secara ketat untuk memastikan kualitas dalam komunikasi, ketepatan waktu, dan hasil kerja.
-- Sribu juga telah menerima beberapa penghargaan, termasuk Indonesia ICT Awards 2013 dan SparxUp Award 2011
+    st.markdown('''**Era "Spesialti Kopi" dan "Third Wave"** :
+Istilah "Specialty Coffee" pertama kali diperkenalkan oleh Erna Knutsen dari Knutsen Coffee Ltd. dalam sebuah artikel pada tahun 1974.
+Ia mendefinisikan kopi spesialti sebagai kopi yang memiliki profil rasa khusus dan berasal dari biji yang ditanam di iklim mikro tertentu.
+
+Konsep ini kemudian berkembang pesat, sejalan dengan munculnya gerakan "Third Wave of Coffee" pada akhir abad ke-20.
+Gerakan ini mendorong para konsumen untuk melihat kopi seperti halnya anggur—sebagai produk pertanian yang memiliki karakteristik unik berdasarkan :
+- Varietas
+- Asal
+- Cara Pemrosesan
 ''')
 
 st.markdown(''' Tujuan melakukan Clustering ini adalah untuk mengidentifikasi karakteristik pelanggan dimana dalam kasus ini adalah menggunakan Karakteristik-karakteristik,seperti :
@@ -51,4 +57,5 @@ Dimana setelah setelah mengetahui karakteristik karakteristik diatas lalu data t
 Dalam Project ini algoritma yang digunakan adalah menggunakan algoritma K-Means,dimana Algoritma K-Means sendiri sering digunakan dalam project-project berbasis unsupervised learning,dimana algoritma ini memiliki keuntungan yang diantaranya adalah :
 - Cepat dan efisien, terutama pada dataset yang besar.
 - Mudah dipahami dan diimplementasikan.''')
+
 
