@@ -39,18 +39,18 @@ st.subheader("Skor Atribut Sensorik (Skala 0-10)")
 col1, col2 = st.columns(2)
 
 with col1:
-    aroma = st.number_input("Aroma", min_value=0.0, max_value=10.0, value=8.5, step=0.1)
-    flavor = st.number_input("Flavor", min_value=0.0, max_value=10.0, value=8.5, step=0.1)
-    aftertaste = st.number_input("Aftertaste", min_value=0.0, max_value=10.0, value=8.0, step=0.1)
-    acidity = st.number_input("Acidity", min_value=0.0, max_value=10.0, value=8.5, step=0.1)
-    body = st.number_input("Body", min_value=0.0, max_value=10.0, value=8.3, step=0.1)
+    aroma = st.number_input("Aroma", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+    flavor = st.number_input("Flavor", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+    aftertaste = st.number_input("Aftertaste", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+    acidity = st.number_input("Acidity", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+    body = st.number_input("Body", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
 
 with col2:
-    balance = st.number_input("Balance", min_value=0.0, max_value=10.0, value=8.4, step=0.1)
-    uniformity = st.number_input("Uniformity", min_value=0.0, max_value=10.0, value=10.0, step=0.1)
-    clean_cup = st.number_input("Clean Cup", min_value=0.0, max_value=10.0, value=10.0, step=0.1)
-    sweetness = st.number_input("Sweetness", min_value=0.0, max_value=10.0, value=10.0, step=0.1)
-    cupper_points = st.number_input("Cupper Points", min_value=0.0, max_value=10.0, value=8.5, step=0.1)
+    balance = st.number_input("Balance", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+    uniformity = st.number_input("Uniformity", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+    clean_cup = st.number_input("Clean Cup", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+    sweetness = st.number_input("Sweetness", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
+    cupper_points = st.number_input("Cupper Points", min_value=0.0, max_value=10.0, value=0.0, step=0.1)
 
 # Tombol untuk prediksi
 if st.button("Prediksi Kualitas Kopi"):
@@ -72,4 +72,5 @@ if st.button("Prediksi Kualitas Kopi"):
 # Petunjuk penggunaan
 st.markdown("---")
 st.info("💡 **Petunjuk:** Ubah nilai di atas sesuai dengan data kopi Anda, lalu klik 'Prediksi Kualitas Kopi' untuk melihat hasilnya.")
+
 
