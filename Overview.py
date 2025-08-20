@@ -88,3 +88,28 @@ Ini menunjukkan bahwa sejarah penilaian kopi spesialti terus bergerak maju, dari
 atas seluruh rantai pasok kopi, dari kebun hingga cangkir.
 ''')
 
+# 1. Definisikan Konten Sejarah per Era
+sejarah_kopi = {
+    "Era Awal (Pra-1970an)": """
+    Pada era ini, penilaian kopi masih sangat sederhana dan tidak memiliki standar yang seragam. Kopi dinilai berdasarkan keasaman, rasa, dan aroma, namun metodenya sangat subjektif dan tidak ada skala yang baku. Penilaian lebih banyak dilakukan oleh pedagang dan roaster. Kopi dinilai berdasarkan penampilannya, seperti ukuran biji dan warnanya.
+    """,
+    "Era Modern (1970an - 2000an)": """
+    Era ini ditandai dengan munculnya Specialty Coffee Association of America (SCAA) pada tahun 1982. SCAA mulai mengembangkan lembar penilaian yang lebih terstruktur dan standar cupping yang objektif. Hal ini memperkenalkan istilah-istilah baru seperti "fragrance", "flavor", dan "body". Standar ini mulai menyatukan bahasa antara produsen, eksportir, dan roaster.
+    """,
+    "Era Digital dan Keterlacakan (2010 - Sekarang)": """
+    Saat ini, penilaian kopi sangat terperinci dan transparan. Selain standar SCA, muncul platform digital yang mengumpulkan data penilaian dari berbagai cupper. Setiap sampel kopi kini bisa dilacak hingga ke petani, perkebunan, dan metode pengolahan. Pengaruh faktor seperti ketinggian (altitude) dan varietas biji juga semakin diperhitungkan, membuat penilaian menjadi lebih akurat.
+    """
+}
+
+# 2. Buat Radio Box
+st.subheader("Pilih Era Sejarah")
+pilihan_era = st.radio(
+    "Silakan pilih era sejarah yang ingin Anda ketahui:",
+    options=list(sejarah_kopi.keys()),
+    index=0 # Pilihan default
+)
+
+# 3. Tampilkan Konten berdasarkan pilihan pengguna
+st.markdown("---")
+st.subheader(f"Ringkasan: {pilihan_era}")
+st.write(sejarah_kopi[pilihan_era])
