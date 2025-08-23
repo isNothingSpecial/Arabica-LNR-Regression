@@ -1,105 +1,73 @@
 import streamlit as st
-import pandas as pd
 
-# Load data monster
-monster_data = pd.read_csv("MHST_monsties.csv")
-monster_description = pd.read_csv("MHST_monsties.csv")
-tendency_map = {1: "Speed", 2: "Power", 3: "Technique"}
+def show_literatur_page():
+    st.header("📚 Literatur & Informasi")
+    st.write("Jelajahi informasi mendalam tentang kopi dan cara kerja aplikasi ini.")
 
-# Sidebar untuk pencarian
-st.sidebar.title("Pencarian Monster")
-search_query = st.sidebar.text_input("Cari Monster (Masukkan nama):")
-filtered_data = monster_data[monster_data['Monster'].str.contains(search_query, case=False)] if search_query else monster_data
+    # --- Bagian 1: Tentang Aplikasi Ini ---
+    st.markdown("---")
+    st.subheader("💡 Tentang Aplikasi Ini")
+    st.write(
+        "Aplikasi ini adalah sebuah inisiatif data science yang didukung oleh AI untuk membantu Anda memahami dan memprediksi kualitas kopi. "
+        "Menggunakan model regresi linier yang dilatih dengan data dari **Specialty Coffee Association (SCA)**, aplikasi ini dapat memprediksi total skor "
+        "kualitas kopi (Total Cup Points) berdasarkan atribut sensoriknya."
+    )
 
-monster_name = st.sidebar.selectbox(
-    "Pilih Monster:",
-    options=filtered_data['Monster'].unique()
-)
+    # --- Bagian 2: Memahami Penilaian Kopi ---
+    st.markdown("---")
+    st.subheader("☕ Memahami Sistem Penilaian Kopi")
+    
+    # Gunakan expander untuk menyembunyikan/menampilkan detail
+    with st.expander("Apa itu Cupping dan Total Cup Points?"):
+        st.write(
+            "**Cupping** adalah metode standar untuk mengevaluasi kualitas kopi. Seorang juru cicip (cupper) akan menilai kopi berdasarkan 10 atribut "
+            "yang berbeda, seperti aroma, rasa, dan keasaman. **Total Cup Points** adalah skor total dari semua penilaian tersebut, "
+            "yang menjadi indikator utama kualitas kopi."
+        )
 
-# Filter data monster yang dipilih
-monster = monster_data[monster_data['Monster'] == monster_name].iloc[0]
-description = monster_description[monster_description['Monster'] == monster_name]['Monster'].values[0]
-tendency = tendency_map[monster['Tendency']]
+    with st.expander("Kategori Kualitas Kopi"):
+        st.write(
+            "Berikut adalah klasifikasi standar yang digunakan dalam aplikasi ini:"
+        )
+        st.markdown(
+            """
+            * **90-100 poin**: **Kopi Spesialti Luar Biasa**. Kualitas istimewa, kompleks, dan unik.
+            * **85-89.99 poin**: **Kopi Spesialti Sangat Baik**. Karakteristik yang menonjol dan seimbang.
+            * **80-84.99 poin**: **Kopi Spesialti**. Ambang batas minimum untuk disebut kopi spesialti.
+            * **Di bawah 80 poin**: **Kopi Non-Spesialti**. Tidak memenuhi standar kualitas spesialti.
+            """
+        )
 
-# Statistik Elemen
-stats_attack = ["Att_Fire", "Att_Water", "Att_Thunder", "Att_Ice", "Att_Dragon"]
-stats_resist = ["Res_Fire", "Res_Water", "Res_Thunder", "Res_Ice", "Res_Dragon"]
-
-# Elemen Terkuat dan Resistance Tertinggi
-strongest_attack_element = monster[stats_attack].idxmax()
-highest_resistance_element = monster[stats_resist].idxmax()
-strongest_attack_value = monster[strongest_attack_element]
-highest_resistance_value = monster[highest_resistance_element]
-
-# Path gambar monster dan statistik
-monster_image_path = f"Monslist/{monster_name}.webp"
-basic_stats_chart_path = f"Basic_Stat/{monster_name}.png"
-attack_stats_chart_path = f"Att_Stat/{monster_name}.png"
-resistance_stats_chart_path = f"Res_Stat/{monster_name}.png"
-
-st.markdown(
-    """
-    <h1 style='text-align: center;'>LITERATUR</h1>
-    """, 
-    unsafe_allow_html=True
-)
-
-# Dropdown untuk literatur
-literatur_options = ['Monster Description', 'Loot', 'Armor and Weapon Obtained', 'Egg and Habitat']
-literatur = st.selectbox('Pilih Literatur yang ingin Anda ketahui', literatur_options)
-
-# Tampilkan konten berdasarkan literatur
-if literatur == 'Monster Description':
-    st.title(f"Monster: {monster_name}")
-
-    # Membuat layout grid
+    # --- Bagian 3: Fakta Menarik tentang Kopi ---
+    st.markdown("---")
+    st.subheader("🌍 Fakta dan Atribut Utama Kopi Arabika")
+    
+    # Gunakan columns untuk tata letak yang lebih rapi
     col1, col2 = st.columns(2)
     with col1:
-        # Gambar monster
-        st.image(monster_image_path, caption=f"{monster_name}", use_column_width=True)
+        st.markdown("**Perbedaan Arabika & Robusta**")
+        st.write(
+            "Arabika cenderung memiliki rasa yang lebih kompleks dan keasaman yang cerah, sementara Robusta memiliki rasa yang lebih kuat, pahit, dan kadar kafein lebih tinggi."
+        )
+
     with col2:
-        # Deskripsi dan Tendency
-        st.subheader("Deskripsi")
-        st.write(f"**Nama**: {description}")
-        st.write(f"**Tendency**: {tendency}")
-        st.write(f"**Elemen Terkuat**: {strongest_attack_element.replace('Att_', '')} ({strongest_attack_value})")
-        st.write(f"**Resistance Tertinggi**: {highest_resistance_element.replace('Res_', '')} ({highest_resistance_value})")
+        st.markdown("**Pengaruh Ketinggian (Altitude)**")
+        st.write(
+            "Kopi yang ditanam di dataran tinggi (high-altitude) biasanya memiliki biji yang lebih padat dan matang lebih lambat, menghasilkan rasa yang lebih kompleks dan keasaman yang lebih baik."
+        )
 
-    # Statistik Dasar
-    st.subheader("Statistik Dasar")
-    col3, col4 = st.columns(2)
-    with col3:
-        st.image(basic_stats_chart_path, use_column_width=True)
-    with col4:
-        for stat in ["HP", "Attack", "Defence", "Speed"]:
-            st.write(f"**{stat}:** {monster[stat]}")
+    st.markdown("---")
+    
+    # Opsi untuk kembali atau lanjut ke halaman lain
+    if st.button("Kembali ke Halaman Utama"):
+        st.session_state.page = "main"
 
-    # Statistik Attack Element
-    st.subheader("Statistik Attack Element")
-    col5, col6 = st.columns(2)
-    with col5:
-        st.image(attack_stats_chart_path, use_column_width=True)
-    with col6:
-        for stat in stats_attack:
-            st.write(f"**{stat.replace('Att_', 'Attack ')}:** {monster[stat]}")
-
-    # Statistik Resistance Element
-    st.subheader("Statistik Resistance Element")
-    col7, col8 = st.columns(2)
-    with col7:
-        st.image(resistance_stats_chart_path, use_column_width=True)
-    with col8:
-        for stat in stats_resist:
-            st.write(f"**{stat.replace('Res_', 'Resistance ')}:** {monster[stat]}")
-
-elif literatur == 'Loot':
-    st.title(f"Loot dari Monster: {monster_name}")
-    st.write("Informasi loot akan ditambahkan di sini.")
-
-elif literatur == 'Armor and Weapon Obtained':
-    st.title(f"Armor dan Weapon dari Monster: {monster_name}")
-    st.write("Informasi armor dan weapon akan ditambahkan di sini.")
-
-elif literatur == 'Egg and Habitat':
-    st.title(f"Egg dan Habitat dari Monster: {monster_name}")
-    st.write("Informasi egg dan habitat akan ditambahkan di sini.")
+# Contoh penggunaan di app.py
+# if 'page' not in st.session_state:
+#     st.session_state.page = "main"
+# if st.session_state.page == "main":
+#     # Kode untuk halaman utama
+#     if st.button("Jelajahi Literatur"):
+#         st.session_state.page = "literatur"
+# elif st.session_state.page == "literatur":
+#     show_literatur_page()
